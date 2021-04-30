@@ -8,8 +8,9 @@ router.get("/", (req, res, next)=> {
 });
 
 //editing the profile page
-router.put("/", (req, res, next)=> {
-    res.status(200).json({"message" : "edit profile"})
+router.patch("/:profileId", (req, res, next)=> {
+    const profileID = req.params.profileId;
+    res.status(200).json({"message" : `editing profile ${profileID}`})
 });
 
 module.exports = router;

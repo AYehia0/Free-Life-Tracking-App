@@ -6,9 +6,4 @@ router.get("/", (req, res, next)=> {
     res.status(200).json({"message" : "food"})
 });
 
-router.get("/", (req, res, next)=> {
-    res.status(200).json({"message" : "food"})
-});
-
-
 module.exports = router;

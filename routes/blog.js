@@ -11,17 +11,23 @@ router.get("/", (req, res, next)=> {
 router.get("/:blogId", (req, res, next)=> {
     //getting the id
     const blogID = req.params.blogId;
-    res.status(200).json({"message" : `Blog ID is : ${blogID}`});
+    res.status(200).json({"message" : `showing specific blog... Blog ID is : ${blogID}`});
 });
 
-
-router.put("/edit", (req, res, next)=> {
-    res.status(200).json({"message" : "edit a blog"});
+router.patch("/:blogId", (req, res, next)=> {
+    const blogID = req.params.blogId;
+    res.status(200).json({"message" : `blog ${blogID} has been edited!`});
 });
 
 router.post("/", (req, res, next)=> {
     res.status(200).json({"message" : "post a new blog"})
 });
+
+router.delete("/:blogId", (req, res, next)=> {
+    const blogID = req.params.blogId;
+    res.status(200).json({"message" : `blog ${blogID} has beed deleted!!`})
+});
+
 
 
 
