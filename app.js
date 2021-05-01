@@ -2,6 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mustache = require("ejs");
+const mongoose = require("mongoose");
+
 const app = express();
 
 
@@ -23,6 +25,12 @@ app.use("/foods", foodRoute);
 app.use("/blog", blogRoute);
 app.use("/profile", profileRoute);
 app.use("/dashboard", dashboardRoute);
+
+// Connecting to the database
+mongoose.connect('mongodb://localhost:27017/',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+})
 
 
 //not a vaild url/route
