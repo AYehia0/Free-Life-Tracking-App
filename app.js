@@ -1,8 +1,9 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-const mustache = require("ejs");
 const mongoose = require("mongoose");
+const flash = require("connect-flash");
+const session = require("express-session");
 
 const app = express();
 
@@ -20,8 +21,42 @@ const loginRotue = require("./routes/login")
 app.use(express.static(__dirname + '/public')); //Serves resources from static files 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+
+// Express session 
+app.use(session({
+    secret: "ilovecats",
+    resave: true,
+    saveUninitialized: true,
+
+    // maxAge is in ms and it's for testing only, idk yet what it should be.
+    cookie: { maxAge: 6000000 }
+}))
+
+// Flash 
+app.use(flash());
+
+// Global var for chooseing colors
+app.use( (req, res, next) => {
+
+    res.locals.successMsg = req.flash("successMsg");
+    res.locals.errorMsg = req.flash("errorMsg");
+    next();
+})
+
 app.use(morgan("dev"));
 app.set('view engine', 'ejs');
+
+// Express session 
+app.use(session({
+    secret: "ilovecats",
+    resave: true,
+    saveUninitialized: true,
+
+    // maxAge is in ms and it's for testing only, idk yet what it should be.
+    cookie: { maxAge: 6000000 }
+}))
+
+// Routes 
 app.use("/", homeRoute);
 app.use("/foods", foodRoute);
 app.use("/blog", blogRoute);
