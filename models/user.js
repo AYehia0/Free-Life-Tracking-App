@@ -22,7 +22,10 @@ const userSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    date: Date.now,
+    date: {
+        type: Date,
+        default: Date.now
+    },
 
     bodythings: [
         {
