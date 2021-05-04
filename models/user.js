@@ -25,24 +25,24 @@ const userSchema = mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
-    },
+    }
 
-    bodythings: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref:"Bodythings"
-        }
-    ],
-    food: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Food"
-        }
-    ],
-    blog: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Blog"
-    } 
+    // bodythings: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref:"Bodythings"
+    //     }
+    // ],
+    // food: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "Food"
+    //     }
+    // ],
+    // blog: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Blog"
+    // } 
 })
 
 module.exports = mongoose.model("User", userSchema);
