@@ -14,6 +14,7 @@ const profileRoute = require("./routes/profile");
 const dashboardRoute = require("./routes/dashboard");
 const homeRoute = require("./routes/home")
 const registerRoute = require("./routes/register");
+const loginRotue = require("./routes/login")
 
 // MiddleWares
 app.use(express.static(__dirname + '/public')); //Serves resources from static files 
@@ -27,11 +28,13 @@ app.use("/blog", blogRoute);
 app.use("/profile", profileRoute);
 app.use("/dashboard", dashboardRoute);
 app.use("/register", registerRoute);
+app.use("/login", loginRotue);
 
 // Connecting to the database
-mongoose.connect('mongodb://localhost:27017/',{
+mongoose.connect('mongodb://localhost:27017/free',{
     useNewUrlParser: true,
-    useUnifiedTopology: true 
+    useUnifiedTopology: true,
+    useCreateIndex:true
 })
 
 //not a vaild url/route
