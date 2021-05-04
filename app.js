@@ -13,6 +13,7 @@ const blogRoute = require("./routes/blog");
 const profileRoute = require("./routes/profile");
 const dashboardRoute = require("./routes/dashboard");
 const homeRoute = require("./routes/home")
+const registerRoute = require("./routes/register");
 
 // MiddleWares
 app.use(express.static(__dirname + '/public')); //Serves resources from static files 
@@ -25,13 +26,13 @@ app.use("/foods", foodRoute);
 app.use("/blog", blogRoute);
 app.use("/profile", profileRoute);
 app.use("/dashboard", dashboardRoute);
+app.use("/register", registerRoute);
 
 // Connecting to the database
 mongoose.connect('mongodb://localhost:27017/',{
     useNewUrlParser: true,
     useUnifiedTopology: true 
 })
-
 
 //not a vaild url/route
 app.use((req, res, next)=>{
@@ -49,7 +50,6 @@ app.use((err, req, res, next) => {
         }
     })
 });
-
 
 
 module.exports = app;
