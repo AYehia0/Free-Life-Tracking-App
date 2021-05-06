@@ -29,20 +29,20 @@
 	          </div>
 
             <%- include("partials/messages") %>
-            <form action="">
+            <form action="/login" method="POST">
               <div class="row">
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Email</label>
-                    <input type="text" class="form-control" placeholder="Your Email">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email">
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Password</label>
-                    <input type="password" class="form-control" placeholder="Your Password">
+                    <input type="password" name="password" class="form-control" placeholder="Your Password">
                   </div>
                 </div>
 
