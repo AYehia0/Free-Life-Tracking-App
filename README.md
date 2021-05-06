@@ -9,3 +9,7 @@ My journey learning fullstack
 
         $ sudo lsof -i :PORT
         $ kill -9 {PID}
+### DataBase Issues: 
+
+    - PhoneNumber starts with 0 : 010123455 ==> 10123455 zeros at first are stripped 
+
