@@ -16,18 +16,13 @@ const dashboardRoute = require("./routes/dashboard");
 const homeRoute = require("./routes/home")
 const registerRoute = require("./routes/register");
 const loginRotue = require("./routes/login")
+const logoutRoute = require("./routes/logout")
 
-// passport config
 
 // MiddleWares
 app.use(express.static(__dirname + '/public')); //Serves resources from static files 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-
-require("./config/passport")(passport)
-app.use(passport.initialize());
-app.use(passport.session());
-
 
 // Express session 
 app.use(session({
@@ -38,6 +33,11 @@ app.use(session({
     // maxAge is in ms and it's for testing only, idk yet what it should be.
     cookie: { maxAge: 6000000 }
 }))
+
+// passport config
+require("./config/passport")(passport)
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Flash 
 app.use(flash());
@@ -61,6 +61,7 @@ app.use("/profile", profileRoute);
 app.use("/dashboard", dashboardRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRotue);
+app.use("/logout", logoutRoute);
 
 // Connecting to the database
 mongoose.connect('mongodb://localhost:27017/free',{
