@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const session = require("express-session");
-
+const passport = require("passport")
 const app = express();
 
 
@@ -17,10 +17,17 @@ const homeRoute = require("./routes/home")
 const registerRoute = require("./routes/register");
 const loginRotue = require("./routes/login")
 
+// passport config
+
 // MiddleWares
 app.use(express.static(__dirname + '/public')); //Serves resources from static files 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+
+require("./config/passport")(passport)
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // Express session 
 app.use(session({
@@ -37,24 +44,14 @@ app.use(flash());
 
 // Global var for chooseing colors
 app.use( (req, res, next) => {
-
     res.locals.successMsg = req.flash("successMsg");
     res.locals.errorMsg = req.flash("errorMsg");
+    res.locals.errorLoginMsg = req.flash("errorLoginMsg");
     next();
 })
 
 app.use(morgan("dev"));
 app.set('view engine', 'ejs');
-
-// Express session 
-app.use(session({
-    secret: "ilovecats",
-    resave: true,
-    saveUninitialized: true,
-
-    // maxAge is in ms and it's for testing only, idk yet what it should be.
-    cookie: { maxAge: 6000000 }
-}))
 
 // Routes 
 app.use("/", homeRoute);
