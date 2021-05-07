@@ -22,7 +22,7 @@ module.exports = function(passport){
                        throw err;
                    }
                    if(success){
-                       console.log(user.email)
+                       //console.log(user.email)
                        return done(null, user);
 
                    }
