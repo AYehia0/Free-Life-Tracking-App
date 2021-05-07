@@ -7,7 +7,6 @@ const session = require("express-session");
 const passport = require("passport")
 const app = express();
 
-
 //routers 
 const foodRoute = require("./routes/foods");
 const blogRoute = require("./routes/blog");
