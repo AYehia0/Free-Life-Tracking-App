@@ -1,10 +1,14 @@
 // route to handle : profile/edit .... to show[GET], edit[PUT]
 const express = require("express");
+const {ensureAuth} = require("../config/auth")
 const router  = express.Router();
 
 //showing the profile page
-router.get("/", (req, res, next)=> {
-    res.status(200).json({"message" : "show profile"})
+router.get("/", ensureAuth, (req, res, next)=> {
+    res.render("../views/profile", {
+        username: req.user.name,
+        user: req.user
+    })
 });
 
 //editing the profile page
