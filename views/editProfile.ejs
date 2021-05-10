@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<%- include("partials/head") %>
+  </head>
+  <body>
+    
+	<%- include("partials/nav") %>
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Edit User <%= username %> </h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Profile <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+	
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-2">
+				<div class="col-md-7 text-center heading-section ftco-animate">
+					<span class="subheading">Edit Profile Page</span>
+
+					<!-- add date here -->
+				<h2 class="mb-4">Edit</h2>
+			</div>
+		</div>
+
+<section id="register-section" class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+    <div class="row d-flex">
+    <div class="col-md-7 ftco-animate makereservation p-4 p-md-5">
+    <div class="heading-section ftco-animate mb-5">
+        <h2 class="mb-4">Edit Profile Page</h2>
+    </div>
+
+    <form action="/edit" method="POST" >
+        <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+            <label for="">Username</label>
+            <input type="text" name="name" class="form-control" placeholder="Your Name" autocomplete="off" value="<%= typeof name != 'undefined' ? name : '' %>">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+            <label for="">Phone Number</label>
+            <input type="number" name="phone" class="form-control" placeholder="Phone" autocomplete="off" value="<%= typeof phone != 'undefined' ? phone : '' %>">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+            <label for="">Age</label>
+            <input type="" name="age" class="form-control" id="age" placeholder="Your age" autocomplete="off" min="10" max="110" value="<%= typeof age != 'undefined' ? age : '' %>">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="password1" class="form-control" id="password1" placeholder="Password" autocomplete="off" value="<%= typeof password1 != 'undefined' ? password1 : '' %>">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+            <label for="">Confirm Password</label>
+            <input type="password" name="password2" class="form-control" id="password2" placeholder="Password again" autocomplete="off" value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+            <label for="">Height</label>
+            <input type="number" name="height" class="form-control" id="height" min="30" max="200" placeholder="Height in cm" autocomplete="off" value="<%= typeof height != 'undefined' ? height : '' %>">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+            <label for="">Weight</label>
+            <input type="number" name="weight" class="form-control" id="weight" placeholder="Current Weight in kg" min="30" max="300" autocomplete="off" value="<%= typeof weight != 'undefined' ? weight : '' %>">
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Activity Level</label>
+              <div class="select-wrap one-third">
+                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                <select name="activity" id="" class="form-control">
+                  <option value="1">1 (low)</option>
+                  <option value="2">2 (moderate)</option>
+                  <option value="3">3 (high)</option>
+                  <option value="4">4 (very high)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-md-12 mt-3">
+            <div class="form-group">
+            <input type="submit" value="Edit" class="btn btn-primary py-3 px-5">
+            </div>
+        </div>
+
+        </div>
+    </form>
+    </div>
+</div>
+    </div>
+</section>
+
+
+        
+    </section>
+
+
+ <%- include("partials/footer") %> 
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+	<%- include("partials/scripts") %> 
+  </body>
+</html>
