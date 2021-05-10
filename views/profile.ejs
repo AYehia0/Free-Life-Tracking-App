@@ -13,7 +13,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
             <h1 class="mb-2 bread">Welcome <%= username %> </h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Dashboard <i class="ion-ios-arrow-forward"></i></span></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Profile <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -56,8 +56,43 @@
                 <%= user.phone %> 
               </div>
         </div>
+        <div class="row">
+            <div class="col">
+              Age
+            </div>
+              <div class="col-md-auto">
+                <%= bodythings.age %> 
+              </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              Current Weight
+            </div>
+              <div class="col-md-auto">
+                <%= bodythings.weight %> KG 
+              </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Current Height 
+              </div>
+              <div class="col-md-auto">
+                <%= bodythings.height %> CM 
+              </div>
+        </div>
+        <div class="row">
+            <div class="col">
+               Activity Level 
+              </div>
+              <div class="col-md-auto">
+                <%= bodythings.activity %> 
+              </div>
+        </div>
 
-
+        <a href="/profile/edit">
+          <button type="button" class="btn btn-info">Edit</button>
+        </a>
+        
     </section>
 
 
