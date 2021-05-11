@@ -7,7 +7,7 @@
     
 	<%- include("partials/nav") %>
     
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_4.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -39,19 +39,14 @@
         <h2 class="mb-4">Edit Profile Page</h2>
     </div>
 
-    <form action="/edit" method="POST" >
+    <%- include("partials/messages") %>
+
+    <form action="edit" method="POST" >
         <div class="row">
         <div class="col-md-6">
             <div class="form-group">
             <label for="">Username</label>
             <input type="text" name="name" class="form-control" placeholder="Your Name" autocomplete="off" value="<%= typeof name != 'undefined' ? name : '' %>">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="form-group">
-            <label for="">Phone Number</label>
-            <input type="number" name="phone" class="form-control" placeholder="Phone" autocomplete="off" value="<%= typeof phone != 'undefined' ? phone : '' %>">
             </div>
         </div>
 
@@ -96,6 +91,7 @@
               <div class="select-wrap one-third">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 <select name="activity" id="" class="form-control">
+                  <option value="">Choose Activity/Leave blank</option>
                   <option value="1">1 (low)</option>
                   <option value="2">2 (moderate)</option>
                   <option value="3">3 (high)</option>
