@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const router  = express.Router();
 
 // For dev purposes only
-const VALID_PASSWORD_LEN = 4;
+const VALID_PASSWORD_LEN = process.env.PASS_LEN
 
 router.post("/", (req, res, next) => {
     // Getting form input to save in db
